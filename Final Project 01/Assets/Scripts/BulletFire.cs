@@ -6,8 +6,13 @@ public class BulletFire : MonoBehaviour
 {
     public float speed;
     private Vector3 pullDirection;
+    private float pullStrength;
+
+    public float strength = 1.0f;
 
     private Vector3 bulletVelocity;
+
+    GameObject gravityWell;
 
     private void Start()
     {
@@ -19,7 +24,14 @@ public class BulletFire : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        bulletVelocity += pullDirection;
+        if (gravityWell != null)
+        {
+            pullDirection = (gravityWell.transform.position - transform.position);
+            pullStrength = strength / Mathf.Pow(Vector3.Distance(gravityWell.transform.position, transform.position), 2.0f);
+            pullDirection *= pullStrength;
+
+            bulletVelocity += pullDirection;
+        }
         GetComponent<Rigidbody>().velocity = (bulletVelocity) * speed;
     }
 
@@ -27,8 +39,15 @@ public class BulletFire : MonoBehaviour
     {
         if (other.tag == "Gravity Well")
         {
-            pullDirection = other.transform.position - transform.position;
-            pullDirection *= 0.1f;
+            gravityWell = other.gameObject;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if(other.tag == "Gravity Well")
+        {
+            gravityWell = null;
         }
     }
 }
