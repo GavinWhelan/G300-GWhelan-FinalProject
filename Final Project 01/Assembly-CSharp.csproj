@@ -61,7 +61,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\BulletFire.cs" />
-    <Compile Include="Assets\Scripts\BulletGravity.cs" />
     <Compile Include="Assets\Scripts\CamMouseLook.cs" />
     <Compile Include="Assets\Scripts\GravityWellPull.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
