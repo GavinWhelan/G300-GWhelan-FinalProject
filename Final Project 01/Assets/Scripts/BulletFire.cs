@@ -9,6 +9,7 @@ public class BulletFire : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GetComponent<Rigidbody>().velocity = transform.forward * speed;
+        //GetComponent<Rigidbody>().velocity = transform.forward * speed;
+        GetComponent<Rigidbody>().AddForce(transform.forward, ForceMode.Impulse);
     }
 }

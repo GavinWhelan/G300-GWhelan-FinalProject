@@ -61,7 +61,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\BulletFire.cs" />
+    <Compile Include="Assets\Scripts\BulletGravity.cs" />
     <Compile Include="Assets\Scripts\CamMouseLook.cs" />
+    <Compile Include="Assets\Scripts\GravityWellPull.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>/Users/gavinwhelan/G300-GWhelan-FinalProject/Final Project 01/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
