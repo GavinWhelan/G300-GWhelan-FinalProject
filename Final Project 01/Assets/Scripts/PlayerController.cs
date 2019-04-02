@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     private float nextFire = 0.0f;
 
     public GameObject bullet;
+    public GameObject aimLine;
     public Transform shotSpawn;
     
     // Start is called before the first frame update
@@ -37,6 +38,11 @@ public class PlayerController : MonoBehaviour
             nextFire = Time.time + fireRate;
             Instantiate(bullet, shotSpawn.position, shotSpawn.rotation);
             // GetComponent<AudioSource>().Play();
+        }
+
+        if (Input.GetButton("Fire2"))
+        {
+            Instantiate(aimLine, shotSpawn.position, shotSpawn.rotation);
         }
     }
 }

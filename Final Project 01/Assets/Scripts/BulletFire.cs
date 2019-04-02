@@ -14,6 +14,7 @@ public class BulletFire : MonoBehaviour
 
     GameObject gravityWell;
 
+    // Initializing values for variables
     private void Start()
     {
         GetComponent<Rigidbody>().velocity = transform.forward;
@@ -21,7 +22,7 @@ public class BulletFire : MonoBehaviour
         pullDirection = new Vector3(0.0f, 0.0f, 0.0f);
     }
 
-    // Update is called once per frame
+    // Moving and interactions with gravity wells
     void Update()
     {
         if (gravityWell != null)
@@ -35,6 +36,7 @@ public class BulletFire : MonoBehaviour
         GetComponent<Rigidbody>().velocity = (bulletVelocity) * speed;
     }
 
+    // On entering gravity field, identify that gravity well as the gravityWell gameObject
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Gravity Well")
@@ -43,6 +45,7 @@ public class BulletFire : MonoBehaviour
         }
     }
 
+    // On leaving gravity field, set gravityWell to null (so it can enter another one)
     private void OnTriggerExit(Collider other)
     {
         if(other.tag == "Gravity Well")
