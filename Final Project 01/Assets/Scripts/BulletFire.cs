@@ -8,7 +8,7 @@ public class BulletFire : MonoBehaviour
     private Vector3 pullDirection;
     private float pullStrength;
 
-    public float strength = 1.0f;
+    public float strength = 0.1f;
 
     private Vector3 bulletVelocity;
 
@@ -27,11 +27,17 @@ public class BulletFire : MonoBehaviour
     {
         if (gravityWell != null)
         {
-            pullDirection = (gravityWell.transform.position - transform.position);
+            pullDirection = (gravityWell.transform.position - transform.position) 
+                            / Vector3.Distance(gravityWell.transform.position, transform.position);
             pullStrength = strength / Mathf.Pow(Vector3.Distance(gravityWell.transform.position, transform.position), 2.0f);
             pullDirection *= pullStrength;
 
             bulletVelocity += pullDirection;
+
+            if(Vector3.Distance(gravityWell.transform.position, transform.position) >= gravityWell.GetComponent<SphereCollider>().radius)
+            {
+                gravityWell = null;
+            }
         }
         GetComponent<Rigidbody>().velocity = (bulletVelocity) * speed;
     }
@@ -45,6 +51,7 @@ public class BulletFire : MonoBehaviour
         }
     }
 
+    /*
     // On leaving gravity field, set gravityWell to null (so it can enter another one)
     private void OnTriggerExit(Collider other)
     {
@@ -53,4 +60,5 @@ public class BulletFire : MonoBehaviour
             gravityWell = null;
         }
     }
+    */
 }
