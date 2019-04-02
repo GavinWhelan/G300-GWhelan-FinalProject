@@ -5,6 +5,11 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float speed = 10.0f;
+    public float fireRate = 0.5f;
+    private float nextFire = 0.0f;
+
+    public GameObject bullet;
+    public Transform shotSpawn;
     
     // Start is called before the first frame update
     void Start()
@@ -25,6 +30,13 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown("escape"))
         {
             Cursor.lockState = CursorLockMode.None;
+        }
+
+        if (Input.GetButton("Fire1") && Time.time > nextFire)
+        {
+            nextFire = Time.time + fireRate;
+            Instantiate(bullet, shotSpawn.position, shotSpawn.rotation);
+            GetComponent<AudioSource>().Play();
         }
     }
 }

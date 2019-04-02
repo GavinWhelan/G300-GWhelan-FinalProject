@@ -1,8 +1,10 @@
 ﻿<Properties StartupConfiguration="{BC9EBAF8-5A2B-9FE9-3D05-D600CDE0207A}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/PlayerController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/BulletFire.cs">
     <Files>
-      <File FileName="Assets/Scripts/CamMouseLook.cs" Line="18" Column="2" />
-      <File FileName="Assets/Scripts/PlayerController.cs" Line="9" Column="29" />
+      <File FileName="Assets/Scripts/BulletFire.cs" Line="12" Column="9" />
+      <File FileName="../../G300-GWhelan-SpaceShooter/Space Shooter/Assets/Scripts/Mover.cs" Line="12" Column="72" />
+      <File FileName="Assets/Scripts/PlayerController.cs" Line="12" Column="32" />
+      <File FileName="Assets/Scripts/CamMouseLook.cs" Line="40" Column="27" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

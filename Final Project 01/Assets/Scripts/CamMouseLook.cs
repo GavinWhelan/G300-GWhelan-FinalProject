@@ -11,6 +11,7 @@ public class CamMouseLook : MonoBehaviour
     private bool paused;
 
     GameObject character;
+    public GameObject gun;
 
     // Start is called before the first frame update
     void Start()
