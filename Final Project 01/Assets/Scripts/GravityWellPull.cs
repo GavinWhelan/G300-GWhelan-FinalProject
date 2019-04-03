@@ -15,6 +15,6 @@ public class GravityWellPull : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        other.GetComponent<Rigidbody>().velocity = transform.forward * 0.1f;
+        other.GetComponent<Rigidbody>().velocity = transform.forward;
     }
 }
