@@ -60,6 +60,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\AimKill.cs" />
+    <Compile Include="Assets\Scripts\AimLaser.cs" />
     <Compile Include="Assets\Scripts\BulletFire.cs" />
     <Compile Include="Assets\Scripts\CamMouseLook.cs" />
     <Compile Include="Assets\Scripts\GravityWellPull.cs" />

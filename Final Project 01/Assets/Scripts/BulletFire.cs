@@ -30,6 +30,7 @@ public class BulletFire : MonoBehaviour
             pullDirection = (gravityWell.transform.position - transform.position) 
                             / Vector3.Distance(gravityWell.transform.position, transform.position);
             pullStrength = strength / Mathf.Pow(Vector3.Distance(gravityWell.transform.position, transform.position), 2.0f);
+            //pullStrength = strength / Vector3.Distance(gravityWell.transform.position, transform.position);
             pullDirection *= pullStrength;
 
             bulletVelocity += pullDirection;
