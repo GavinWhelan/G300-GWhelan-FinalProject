@@ -16,6 +16,8 @@ public class BulletFire : MonoBehaviour
     private float exitRadius;
     private float exitTime;
 
+    private bool canLeave = false;
+
     GameObject gravityWell;
 
     // Initializing values for variables
@@ -43,7 +45,12 @@ public class BulletFire : MonoBehaviour
             // exitRadius shrinks as time goes by, so that the bullets and aim line leave the gravity well before they loop around
             //exitRadius -= exitRadius * exitTime;
 
-            if(Vector3.Distance(gravityWell.transform.position, transform.position) >= exitRadius)
+            if(Vector3.Distance(gravityWell.transform.position, transform.position) <= 1.0f)
+            {
+                canLeave = true;
+            }
+
+            if (Vector3.Distance(gravityWell.transform.position, transform.position) >= exitRadius || (Vector3.Distance(gravityWell.transform.position, transform.position) >= 1.0f && canLeave))
             {
                 gravityWell = null;
                 exitTime = 0.0f;
@@ -60,6 +67,11 @@ public class BulletFire : MonoBehaviour
             gravityWell = other.gameObject;
             exitRadius = other.GetComponent<SphereCollider>().radius;
             exitTime = 0.0f;
+        }
+
+        if(other.tag == "Draggable")
+        {
+            other.GetComponent<Rigidbody>().AddForce()
         }
     }
 

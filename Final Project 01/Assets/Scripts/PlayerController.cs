@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
     public float fireRate = 0.5f;
     private float nextFire = 0.0f;
 
-    public float fireRateAim = 0.1f;
+    public float fireRateAim = 0.01f;
     public float nextFireAim = 0.0f;
 
     public GameObject bullet;
@@ -36,14 +36,14 @@ public class PlayerController : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
         }
 
-        if (Input.GetButton("Fire1") && Time.time > nextFire)
+        if (Input.GetButton("Fire2") && Time.time > nextFire)
         {
             nextFire = Time.time + fireRate;
             Instantiate(bullet, shotSpawn.position, shotSpawn.rotation);
             // GetComponent<AudioSource>().Play();
         }
 
-        if (Input.GetButton("Fire2") && Time.time > nextFireAim)
+        if (Input.GetButton("Fire1") && Time.time > nextFireAim)
         {
             nextFireAim = Time.time + fireRateAim;
             Instantiate(aimLine, shotSpawn.position, shotSpawn.rotation);

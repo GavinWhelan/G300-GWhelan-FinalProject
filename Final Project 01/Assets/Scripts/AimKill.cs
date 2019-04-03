@@ -14,7 +14,7 @@ public class AimKill : MonoBehaviour
     void Update()
     {
         timeElapsed += Time.deltaTime;
-        if (timeElapsed >= 1.0f || Input.GetButtonUp("Fire 2"))
+        if (timeElapsed >= 2.0f || Input.GetButtonUp("Fire 2"))
         {
             Destroy(this.gameObject);
         }
