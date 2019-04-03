@@ -8,6 +8,9 @@ public class PlayerController : MonoBehaviour
     public float fireRate = 0.5f;
     private float nextFire = 0.0f;
 
+    public float fireRateAim = 0.1f;
+    public float nextFireAim = 0.0f;
+
     public GameObject bullet;
     public GameObject aimLine;
     public Transform shotSpawn;
@@ -40,8 +43,9 @@ public class PlayerController : MonoBehaviour
             // GetComponent<AudioSource>().Play();
         }
 
-        if (Input.GetButton("Fire2"))
+        if (Input.GetButton("Fire2") && Time.time > nextFireAim)
         {
+            nextFireAim = Time.time + fireRateAim;
             Instantiate(aimLine, shotSpawn.position, shotSpawn.rotation);
         }
     }

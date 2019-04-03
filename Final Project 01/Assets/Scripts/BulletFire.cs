@@ -12,6 +12,10 @@ public class BulletFire : MonoBehaviour
 
     private Vector3 bulletVelocity;
 
+    // Variable that shrinks with time (so that individual bullets don't loop around the gravity well)
+    private float exitRadius;
+    private float exitTime;
+
     GameObject gravityWell;
 
     // Initializing values for variables
@@ -27,6 +31,7 @@ public class BulletFire : MonoBehaviour
     {
         if (gravityWell != null)
         {
+            exitTime = Time.deltaTime;
             pullDirection = (gravityWell.transform.position - transform.position) 
                             / Vector3.Distance(gravityWell.transform.position, transform.position);
             pullStrength = strength / Mathf.Pow(Vector3.Distance(gravityWell.transform.position, transform.position), 2.0f);
@@ -35,9 +40,13 @@ public class BulletFire : MonoBehaviour
 
             bulletVelocity += pullDirection;
 
-            if(Vector3.Distance(gravityWell.transform.position, transform.position) >= gravityWell.GetComponent<SphereCollider>().radius)
+            // exitRadius shrinks as time goes by, so that the bullets and aim line leave the gravity well before they loop around
+            //exitRadius -= exitRadius * exitTime;
+
+            if(Vector3.Distance(gravityWell.transform.position, transform.position) >= exitRadius)
             {
                 gravityWell = null;
+                exitTime = 0.0f;
             }
         }
         GetComponent<Rigidbody>().velocity = (bulletVelocity) * speed;
@@ -49,6 +58,8 @@ public class BulletFire : MonoBehaviour
         if (other.tag == "Gravity Well")
         {
             gravityWell = other.gameObject;
+            exitRadius = other.GetComponent<SphereCollider>().radius;
+            exitTime = 0.0f;
         }
     }
 
