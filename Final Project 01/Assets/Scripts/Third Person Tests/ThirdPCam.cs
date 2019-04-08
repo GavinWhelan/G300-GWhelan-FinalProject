@@ -23,7 +23,7 @@ public class ThirdPCam : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!paused)
+        if (!paused && !(Input.GetKey("e")))
         {
             var md = new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y"));
 
@@ -33,7 +33,7 @@ public class ThirdPCam : MonoBehaviour
             mouseLook += smoothV;
 
             transform.localRotation = Quaternion.AngleAxis(-mouseLook.y, Vector3.right);
-            //character.transform.localRotation = Quaternion.AngleAxis(mouseLook.x, character.transform.up);
+            character.transform.localRotation = Quaternion.AngleAxis(mouseLook.x, character.transform.up);
         }
 
         if (Input.GetKeyDown("escape"))
