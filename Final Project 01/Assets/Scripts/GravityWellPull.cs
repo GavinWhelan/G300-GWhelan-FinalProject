@@ -17,4 +17,5 @@ public class GravityWellPull : MonoBehaviour
     {
         other.GetComponent<Rigidbody>().velocity = transform.forward;
     }
+
 }

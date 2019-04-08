@@ -71,10 +71,12 @@ public class BulletFire : MonoBehaviour
 
         if(other.tag == "Draggable")
         {
-            other.GetComponent<Rigidbody>().AddForce()
+            Vector3 velocity = GetComponent<Rigidbody>().velocity /
+                                Vector3.Distance(new Vector3(0.0f, 0.0f, 0.0f), GetComponent<Rigidbody>().velocity);
+            other.GetComponentInParent<Rigidbody>().AddForce(-velocity, ForceMode.VelocityChange);
         }
     }
-
+    
     /*
     // On leaving gravity field, set gravityWell to null (so it can enter another one)
     private void OnTriggerExit(Collider other)
