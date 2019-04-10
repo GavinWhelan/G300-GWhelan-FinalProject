@@ -65,6 +65,7 @@
     <Compile Include="Assets\Scripts\BulletFire.cs" />
     <Compile Include="Assets\Scripts\CamMouseLook.cs" />
     <Compile Include="Assets\Scripts\GravityWellPull.cs" />
+    <Compile Include="Assets\Scripts\New Gun\NewGunPlaCon.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Third Person Tests\ThirdPCam.cs" />
     <Compile Include="Assets\Scripts\Third Person Tests\ThirdPController.cs" />
