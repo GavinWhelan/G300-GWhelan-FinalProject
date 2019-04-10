@@ -337,7 +337,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 5
+  m_Radius: 10
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2626903597292506212
 GameObject:
@@ -460,16 +460,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 2626903597292506212}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43edcb220a9e00f4c9e18d37ae8d6709, type: 3}
+  m_Script: {fileID: 11500000, guid: be90c7779d7f4f448b5335c9096b16dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
   fireRate: 0.5
-  fireRateAim: 0.1
+  fireRateAim: 0.01
   nextFireAim: 0
   bullet: {fileID: 8227623736313466694, guid: e2db71b08395d4f4dbf7de006051467b, type: 3}
-  aimLine: {fileID: 1242645972872936485, guid: 3ae56ef90880f4f62970248597204b8c, type: 3}
+  aimLine: {fileID: 1242645972872936485, guid: 85043b22ae77f0449b4a82ad06a885f8, type: 3}
   shotSpawn: {fileID: 2626903596011454203}
+  gun: {fileID: 2626903595803582777}
+  aimSight: {fileID: 0}
+  maxCount: 10
 --- !u!20 &2626903597326954400
 Camera:
   m_ObjectHideFlags: 0

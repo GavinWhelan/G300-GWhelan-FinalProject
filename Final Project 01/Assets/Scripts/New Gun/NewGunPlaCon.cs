@@ -16,7 +16,11 @@ public class NewGunPlaCon : MonoBehaviour
     public Transform shotSpawn;
     public GameObject gun;
 
-    private Dictionary<float, Vector3> AimPoints = new Dictionary<float, Vector3>();
+    public Transform aimSight;
+
+    private bool isFiring = false;
+    private Dictionary<int, Vector3> AimPoints = new Dictionary<int, Vector3>();
+    public int maxCount = 10;
     
     // Start is called before the first frame update
     void Start()
@@ -39,19 +43,47 @@ public class NewGunPlaCon : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
         }
 
+        /*
         if (Input.GetButton("Fire2") && Time.time > nextFire)
         {
             nextFire = Time.time + fireRate;
             Instantiate(bullet, shotSpawn.position, shotSpawn.rotation);
             // GetComponent<AudioSource>().Play();
         }
+        */
 
+        // Fire a single projectile and log the position of that projectile every frame
 
+        if (isFiring && AimPoints.Count <= maxCount)
+        {
+            AimPoints.Add(AimPoints.Count + 1, aimLine.GetComponent<Transform>().position);
+        }
 
+        if (AimPoints.Count > -1)
+        {
+            Debug.Log(AimPoints);
+        }
+
+        if (Input.GetButton("Fire1") && AimPoints.Count == 0)
+        {
+            Instantiate(aimLine, shotSpawn.position, shotSpawn.rotation);
+            isFiring = true;
+        }
+
+        if (!Input.GetButton("Fire1"))
+        {
+            isFiring = false;
+            AimPoints.Clear();
+        }
+
+        
+
+       /*
         if (Input.GetButton("Fire1") && Time.time > nextFireAim)
         {
             nextFireAim = Time.time + fireRateAim;
             Instantiate(aimLine, shotSpawn.position, shotSpawn.rotation);
         }
+        */
     }
 }

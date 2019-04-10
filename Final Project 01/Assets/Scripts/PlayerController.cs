@@ -36,12 +36,14 @@ public class PlayerController : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
         }
 
+        /*
         if (Input.GetButton("Fire2") && Time.time > nextFire)
         {
             nextFire = Time.time + fireRate;
             Instantiate(bullet, shotSpawn.position, shotSpawn.rotation);
             // GetComponent<AudioSource>().Play();
         }
+        */
 
         if (Input.GetButton("Fire1") && Time.time > nextFireAim)
         {
