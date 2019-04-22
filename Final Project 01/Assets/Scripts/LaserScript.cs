@@ -5,11 +5,13 @@ using UnityEngine;
 public class LaserScript : MonoBehaviour
 {
     LineRenderer line;
+    public float speed;
 
     void Start()
     {
         line = gameObject.GetComponent<LineRenderer>();
         line.enabled = false;
+        speed = 50.0f;
     }
 
 
@@ -40,7 +42,18 @@ public class LaserScript : MonoBehaviour
                 line.SetPosition(1, hit.point);
                 if (hit.rigidbody)
                 {
-                    hit.rigidbody.velocity = transform.forward * - 50;
+                    Vector3 movement;
+
+                    if (Vector3.Distance(GameObject.Find("Hold Spot").transform.position, hit.transform.position) >= 0.0f)
+                    {
+                        movement = GameObject.Find("Hold Spot").transform.position - hit.transform.position;
+                    }
+                    else
+                    {
+                        movement = hit.transform.position - GameObject.Find("Hold Spot").transform.position;
+                    }
+
+                    hit.rigidbody.AddForceAtPosition(transform.forward * -1 * speed, hit.point);
                 }
             }
             else
