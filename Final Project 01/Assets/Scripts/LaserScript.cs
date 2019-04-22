@@ -11,7 +11,7 @@ public class LaserScript : MonoBehaviour
     {
         line = gameObject.GetComponent<LineRenderer>();
         line.enabled = false;
-        speed = 50.0f;
+        speed = 10.0f;
     }
 
 
@@ -27,6 +27,7 @@ public class LaserScript : MonoBehaviour
     IEnumerator FireLaser()
     {
         line.enabled = true;
+        Vector3 movement;
 
         while (Input.GetButton("Fire1"))
         {
@@ -42,18 +43,9 @@ public class LaserScript : MonoBehaviour
                 line.SetPosition(1, hit.point);
                 if (hit.rigidbody)
                 {
-                    Vector3 movement;
+                    movement = GameObject.Find("Hold Spot").transform.position - hit.transform.position;
 
-                    if (Vector3.Distance(GameObject.Find("Hold Spot").transform.position, hit.transform.position) >= 0.0f)
-                    {
-                        movement = GameObject.Find("Hold Spot").transform.position - hit.transform.position;
-                    }
-                    else
-                    {
-                        movement = hit.transform.position - GameObject.Find("Hold Spot").transform.position;
-                    }
-
-                    hit.rigidbody.AddForceAtPosition(transform.forward * -1 * speed, hit.point);
+                    hit.rigidbody.velocity = movement * speed;
                 }
             }
             else
