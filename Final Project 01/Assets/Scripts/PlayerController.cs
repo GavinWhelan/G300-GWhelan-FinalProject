@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Moves the player left, right, forward and backward with arrow keys
         float translation = Input.GetAxis("Vertical") * speed;
         float strafe = Input.GetAxis("Horizontal") * speed;
         translation *= Time.deltaTime;
@@ -45,6 +46,7 @@ public class PlayerController : MonoBehaviour
         }
         */
 
+        // Shoots aim line with fire1 button
         if (Input.GetButton("Fire1") && Time.time > nextFireAim)
         {
             nextFireAim = Time.time + fireRateAim;
