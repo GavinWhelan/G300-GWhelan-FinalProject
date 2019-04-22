@@ -15,6 +15,9 @@ public class NewGunPlaCon : MonoBehaviour
     public GameObject aimLine;
     public Transform shotSpawn;
     public GameObject gun;
+    public GameObject lineDrop;
+
+    LineRenderer line;
 
     public Transform aimSight;
 
@@ -56,12 +59,17 @@ public class NewGunPlaCon : MonoBehaviour
 
         if (isFiring && AimPoints.Count <= maxCount)
         {
+            Debug.Log("Here");
             AimPoints.Add(AimPoints.Count + 1, aimLine.GetComponent<Transform>().position);
+            Instantiate(lineDrop, AimPoints[AimPoints.Count], aimLine.GetComponent<Transform>().rotation);
+            LineRenderer line = lineDrop.GetComponent<LineRenderer>();
+            line.SetPosition(0, AimPoints[(AimPoints.Count) - 1]);
+            line.SetPosition(1, AimPoints[AimPoints.Count]);
         }
 
         if (AimPoints.Count > -1)
         {
-            Debug.Log(AimPoints);
+            //Debug.Log(AimPoints);
         }
 
         if (Input.GetButton("Fire1") && AimPoints.Count == 0)
