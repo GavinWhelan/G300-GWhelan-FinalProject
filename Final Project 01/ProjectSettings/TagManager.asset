@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Gravity Well
   - Draggable
+  - Electrified
+  - Wet
   layers:
   - Default
   - TransparentFX

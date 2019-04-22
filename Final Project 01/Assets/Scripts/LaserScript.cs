@@ -6,12 +6,18 @@ public class LaserScript : MonoBehaviour
 {
     LineRenderer line;
     public float speed;
+    public bool push;
+    public bool area;
 
     void Start()
     {
         line = gameObject.GetComponent<LineRenderer>();
         line.enabled = false;
         speed = 10.0f;
+
+        // Determine the mode of the gun--default is pull/beam (!push/!area).
+        push = false;
+        area = false;
     }
 
 
@@ -19,8 +25,45 @@ public class LaserScript : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire1"))
         {
-            StopCoroutine("FireLaser");
-            StartCoroutine("FireLaser");
+            if (area)
+            {
+                StopCoroutine("FireArea");
+                StartCoroutine("FireArea");
+            }
+            else
+            {
+                // Toggles direction and intensity of push/pull for when the coroutine runs
+                if (push)
+                {
+                    speed = 5.0f;
+                }
+                else
+                {
+                    speed = 10.0f;
+                }
+                StopCoroutine("FireLaser");
+                StartCoroutine("FireLaser");
+            }
+        }
+    }
+
+    IEnumerator FireArea()
+    {
+        Vector3 movement;
+
+        while (Input.GetButton("Fire1"))
+        {
+            Collider[] hitColliders = Physics.OverlapSphere(transform.position, 10.0f);
+            foreach(Collider hitCollider in hitColliders)
+            {
+                if(hitCollider.GetComponentInParent<Rigidbody>() != null)
+                {
+                    movement = GameObject.Find("Hold Spot Area").transform.position - hitCollider.GetComponentInParent<Transform>().position;
+
+                    hitCollider.GetComponentInParent<Rigidbody>().velocity = movement * speed * 0.5f;
+                }
+            }
+            yield return null;
         }
     }
 
@@ -43,7 +86,14 @@ public class LaserScript : MonoBehaviour
                 line.SetPosition(1, hit.point);
                 if (hit.rigidbody)
                 {
-                    movement = GameObject.Find("Hold Spot").transform.position - hit.transform.position;
+                    if (push)
+                    {
+                        movement = transform.transform.forward;
+                    }
+                    else
+                    {
+                        movement = GameObject.Find("Hold Spot").transform.position - hit.transform.position;
+                    }
 
                     hit.rigidbody.velocity = movement * speed;
                 }
@@ -58,4 +108,6 @@ public class LaserScript : MonoBehaviour
 
         line.enabled = false;
     }
+
+
 }

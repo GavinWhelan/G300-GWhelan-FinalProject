@@ -5,15 +5,8 @@ using UnityEngine;
 public class PlayerControllerUpdated : MonoBehaviour
 {
     public float speed = 10.0f;
-    public float fireRate = 0.5f;
-    private float nextFire = 0.0f;
 
-    public float fireRateAim = 0.01f;
-    public float nextFireAim = 0.0f;
-
-    public GameObject bullet;
-    public GameObject aimLine;
-    public Transform shotSpawn;
+    public GameObject gun;
 
     // Start is called before the first frame update
     void Start()
@@ -35,6 +28,30 @@ public class PlayerControllerUpdated : MonoBehaviour
         if (Input.GetKeyDown("escape"))
         {
             Cursor.lockState = CursorLockMode.None;
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Wet")
+        {
+            gun.GetComponent<LaserScript>().push = true;
+        }
+        if (other.tag == "Electrified")
+        {
+            gun.GetComponent<LaserScript>().area = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if(other.tag == "Wet")
+        {
+            gun.GetComponent<LaserScript>().push = false;
+        }
+        if(other.tag == "Electrified")
+        {
+            gun.GetComponent<LaserScript>().area = false;
         }
     }
 }
