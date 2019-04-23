@@ -18,10 +18,15 @@ public class LaserScript : MonoBehaviour
 
     public GameObject lightningEffect;
 
+    public bool lineEnabled;
+    public Vector3 lineStart;
+    public Vector3 lineEnd;
+
     void Start()
     {
         line = gameObject.GetComponent<LineRenderer>();
         line.enabled = false;
+        lineEnabled = line.enabled;
 
         // Determine the mode of the gun--default is pull/beam (!push/!area).
         push = false;
@@ -50,12 +55,12 @@ public class LaserScript : MonoBehaviour
     IEnumerator FireLaser()
     {
         line.enabled = true;
+        lineEnabled = line.enabled;
         Vector3 movement;
 
         // When fire1 is pressed
         while (Input.GetButton("Fire1"))
         {
-            Instantiate(lightningEffect, transform.position, transform.rotation);
             // In even of an area effect
             if (area == true)
             {
@@ -74,9 +79,14 @@ public class LaserScript : MonoBehaviour
                 if (hitColliders != null)
                 {
                     line.enabled = true;
+                    lineEnabled = line.enabled;
                     line.material.mainTextureOffset = new Vector2(0, Time.time);
                     line.SetPosition(0, transform.position);
                     line.SetPosition(1, GameObject.Find("Hold Spot").transform.position);
+                    lineStart = line.GetPosition(0);
+                    lineEnd = line.GetPosition(1);
+
+
                 }
             }
             else // In event of a beam effect
@@ -87,10 +97,12 @@ public class LaserScript : MonoBehaviour
                 RaycastHit hit;
 
                 line.SetPosition(0, ray.origin);
+                lineStart = line.GetPosition(0);
 
                 if (Physics.Raycast(ray, out hit, 100))
                 {
                     line.SetPosition(1, hit.point);
+                    lineEnd = line.GetPosition(1);
                     if (hit.rigidbody)
                     {
                         if (target == null && hit.transform.gameObject.tag == "Draggable") {
@@ -103,10 +115,12 @@ public class LaserScript : MonoBehaviour
                     if (target != null)
                     {
                         line.SetPosition(1, target.transform.position);
+                        lineEnd = line.GetPosition(1);
                     }
                     else
                     {
                         line.SetPosition(1, ray.GetPoint(100));
+                        lineEnd = line.GetPosition(1);
                     }
                 }
                 if (target != null)
@@ -128,6 +142,7 @@ public class LaserScript : MonoBehaviour
         }
         target = null;
         line.enabled = false;
+        lineEnabled = line.enabled;
     }
 
 

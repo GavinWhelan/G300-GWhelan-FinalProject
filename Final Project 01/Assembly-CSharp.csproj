@@ -71,6 +71,7 @@
     <Compile Include="Assets\Scripts\GravityWellPull.cs" />
     <Compile Include="Assets\Scripts\LaserScript.cs" />
     <Compile Include="Assets\Scripts\LightningBoltScript.cs" />
+    <Compile Include="Assets\Scripts\LightningBoltScript1.cs" />
     <Compile Include="Assets\Scripts\New Gun\NewGunPlaCon.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\PlayerControllerUpdated.cs" />
