@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 9203558080610194072}
   m_Layer: 0
   m_Name: Trigger Platform
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26,8 +26,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 31437075866926200}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 30, y: 0.25, z: 25}
-  m_LocalScale: {x: 4, y: 0.125, z: 4}
+  m_LocalPosition: {x: 40, y: 0.325, z: 25}
+  m_LocalScale: {x: 4, y: 0.5, z: 4}
   m_Children:
   - {fileID: 626440504499345589}
   m_Father: {fileID: 0}
@@ -74,7 +74,7 @@ GameObject:
   - component: {fileID: 626440504499345584}
   m_Layer: 0
   m_Name: Platform
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

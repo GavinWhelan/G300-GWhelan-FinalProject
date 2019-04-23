@@ -8,7 +8,10 @@ public class TriggerPlatform : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        triggered = true;
+        if (other.tag != "Platform")
+        {
+            triggered = true;
+        }
     }
     private void OnTriggerExit(Collider other)
     {

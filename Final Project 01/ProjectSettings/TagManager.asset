@@ -10,6 +10,7 @@ TagManager:
   - Wet
   - Ground
   - JumpCollider
+  - Platform
   layers:
   - Default
   - TransparentFX
