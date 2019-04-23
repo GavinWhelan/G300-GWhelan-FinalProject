@@ -9,6 +9,7 @@ TagManager:
   - Electrified
   - Wet
   - Ground
+  - JumpCollider
   layers:
   - Default
   - TransparentFX

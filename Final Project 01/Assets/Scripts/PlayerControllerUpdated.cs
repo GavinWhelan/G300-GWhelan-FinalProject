@@ -11,8 +11,11 @@ public class PlayerControllerUpdated : MonoBehaviour
     private Vector3 jump;
     public float jumpForce = 10.0f;
 
-    private bool isGrounded;
+    public bool isGrounded;
     Rigidbody rb;
+
+    public int jumpTester = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -42,6 +45,7 @@ public class PlayerControllerUpdated : MonoBehaviour
         {
             rb.AddForce(jump * jumpForce, ForceMode.Impulse);
             isGrounded = false;
+            Debug.Log("Heya!");
         }
     }
 
@@ -69,11 +73,14 @@ public class PlayerControllerUpdated : MonoBehaviour
         }
     }
 
-    private void OnCollisionStay(Collision collision)
+    void OnCollisionStay(Collision collision)
     {
-        isGrounded = true;
+        if (collision.gameObject.tag == "Ground")
+        {
+            isGrounded = true;
+            jumpTester += 1;
+            //Debug.Log("Jump tester: " + jumpTester);
+        }
     }
-
-
 }
 
