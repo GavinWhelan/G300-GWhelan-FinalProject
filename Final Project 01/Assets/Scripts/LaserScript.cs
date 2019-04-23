@@ -17,13 +17,18 @@ public class LaserScript : MonoBehaviour
     private GameObject target;
 
     public GameObject lightningEffect;
+    public GameObject player;
 
     public bool lineEnabled;
     public Vector3 lineStart;
     public Vector3 lineEnd;
 
+    private int launchFactor = 1;
+
     void Start()
     {
+        player = GameObject.Find("Player");
+
         line = gameObject.GetComponent<LineRenderer>();
         line.enabled = false;
         lineEnabled = line.enabled;
@@ -42,10 +47,12 @@ public class LaserScript : MonoBehaviour
             if (push)
             {
                 speed = pullSpeed;
+                launchFactor = -1;
             }
             else
             {
                 speed = pushSpeed;
+                launchFactor = 1;
             }
             StopCoroutine("FireLaser");
             StartCoroutine("FireLaser");
@@ -108,6 +115,10 @@ public class LaserScript : MonoBehaviour
                         if (target == null && hit.transform.gameObject.tag == "Draggable") {
                             target = hit.transform.gameObject;
                         }
+                    } else if(hit.transform.gameObject.tag == "Launch")
+                    {
+                        Debug.Log("Launch time!");
+                        player.GetComponent<Rigidbody>().AddForce(launchFactor * transform.forward, ForceMode.Impulse);
                     }
                 }
                 else
