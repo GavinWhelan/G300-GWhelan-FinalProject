@@ -65,6 +65,7 @@
     <Compile Include="Assets\Scripts\BulletFire.cs" />
     <Compile Include="Assets\Scripts\CamMouseLook.cs" />
     <Compile Include="Assets\Scripts\Collideable.cs" />
+    <Compile Include="Assets\Scripts\GameController.cs" />
     <Compile Include="Assets\Scripts\GravityWellPull.cs" />
     <Compile Include="Assets\Scripts\LaserScript.cs" />
     <Compile Include="Assets\Scripts\New Gun\NewGunPlaCon.cs" />
@@ -72,6 +73,7 @@
     <Compile Include="Assets\Scripts\PlayerControllerUpdated.cs" />
     <Compile Include="Assets\Scripts\Third Person Tests\ThirdPCam.cs" />
     <Compile Include="Assets\Scripts\Third Person Tests\ThirdPController.cs" />
+    <Compile Include="Assets\Scripts\TriggerPlatform.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>/Users/gavinwhelan/G300-GWhelan-FinalProject/Final Project 01/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>

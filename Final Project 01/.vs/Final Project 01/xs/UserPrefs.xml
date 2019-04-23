@@ -1,5 +1,5 @@
 ﻿<Properties StartupConfiguration="{BC9EBAF8-5A2B-9FE9-3D05-D600CDE0207A}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/PlayerControllerUpdated.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/TriggerPlatform.cs">
     <Files>
       <File FileName="Assets/Scripts/BulletFire.cs" Line="76" Column="97" />
       <File FileName="Assets/Scripts/PlayerController.cs" Line="57" Column="1" />
@@ -7,8 +7,9 @@
       <File FileName="Assets/Scripts/GravityWellPull.cs" Line="20" Column="1" />
       <File FileName="Assets/Scripts/AimKill.cs" Line="17" Column="31" />
       <File FileName="Assets/Scripts/New Gun/NewGunPlaCon.cs" Line="59" Column="1" />
-      <File FileName="Assets/Scripts/PlayerControllerUpdated.cs" Line="12" Column="32" />
+      <File FileName="Assets/Scripts/PlayerControllerUpdated.cs" Line="44" Column="10" />
       <File FileName="Assets/Scripts/LaserScript.cs" Line="26" Column="30" />
+      <File FileName="Assets/Scripts/TriggerPlatform.cs" Line="9" Column="9" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

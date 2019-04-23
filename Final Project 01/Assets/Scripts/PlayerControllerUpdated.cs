@@ -9,12 +9,10 @@ public class PlayerControllerUpdated : MonoBehaviour
     public GameObject gun;
 
     private Vector3 jump;
-    public float jumpForce = 10.0f;
+    public float jumpForce = 5.0f;
 
-    public bool isGrounded;
+    private bool isGrounded;
     Rigidbody rb;
-
-    public int jumpTester = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -22,12 +20,13 @@ public class PlayerControllerUpdated : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
 
         rb = GetComponent<Rigidbody>();
-        jump = new Vector3(0.0f, 0.1f, 0.0f);
+        jump = new Vector3(0.0f, 1.0f, 0.0f);
     }
 
     // Update is called once per frame
     void Update()
     {
+
         // Moves the player left, right, forward and backward with arrow keys
         float translation = Input.GetAxis("Vertical") * speed;
         float strafe = Input.GetAxis("Horizontal") * speed;
@@ -45,7 +44,6 @@ public class PlayerControllerUpdated : MonoBehaviour
         {
             rb.AddForce(jump * jumpForce, ForceMode.Impulse);
             isGrounded = false;
-            Debug.Log("Heya!");
         }
     }
 
@@ -73,13 +71,11 @@ public class PlayerControllerUpdated : MonoBehaviour
         }
     }
 
-    void OnCollisionStay(Collision collision)
+    void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Ground")
         {
             isGrounded = true;
-            jumpTester += 1;
-            //Debug.Log("Jump tester: " + jumpTester);
         }
     }
 }
