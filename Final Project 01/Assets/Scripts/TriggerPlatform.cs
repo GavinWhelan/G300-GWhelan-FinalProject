@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class TriggerPlatform : MonoBehaviour
 {
+    public bool triggered = false;
+
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("True");
+        triggered = true;
     }
     private void OnTriggerExit(Collider other)
     {
-        Debug.Log("False");
+        triggered = false;
     }
 }

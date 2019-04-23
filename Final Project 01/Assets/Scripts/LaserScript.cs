@@ -12,6 +12,8 @@ public class LaserScript : MonoBehaviour
     public float pullSpeed = 5.0f;
     public float pushSpeed = 10.0f;
 
+    public float areaRadius = 20.0f;
+
     private GameObject target;
 
     void Start()
@@ -55,14 +57,14 @@ public class LaserScript : MonoBehaviour
             if (area == true)
             {
                 // Find the colliders of all nearby elements, and, if they are draggable, pull them to the hold spot
-                Collider[] hitColliders = Physics.OverlapSphere(transform.position, 10.0f);
+                Collider[] hitColliders = Physics.OverlapSphere(transform.position, areaRadius);
                 foreach (Collider hitCollider in hitColliders)
                 {
                     if (hitCollider.GetComponentInParent<Rigidbody>() != null && hitCollider.transform.gameObject.tag == "Draggable")
                     {
                         movement = GameObject.Find("Hold Spot").transform.position - hitCollider.GetComponentInParent<Transform>().position;
 
-                        hitCollider.GetComponentInParent<Rigidbody>().velocity = movement * speed * 0.25f;
+                        hitCollider.GetComponentInParent<Rigidbody>().velocity = movement * speed;
                     }
                 }
                 // If there are objects being pulled, turn on the beam
@@ -88,28 +90,35 @@ public class LaserScript : MonoBehaviour
                     line.SetPosition(1, hit.point);
                     if (hit.rigidbody)
                     {
-                        if (target == null) {
+                        if (target == null && hit.transform.gameObject.tag == "Draggable") {
                             target = hit.transform.gameObject;
-                            Debug.Log("Gotcha!");
-                            Debug.Log(hit.transform.gameObject.tag);
                         }
-
-                        if (push)
-                        {
-                            movement = transform.forward;
-                        }
-                        else
-                        {
-                            Vector3 destination = GameObject.Find("Hold Spot").transform.position;
-                            Vector3 carriedObject = target.transform.position;
-                            movement = (destination - carriedObject);
-                        }
-                        target.GetComponent<Rigidbody>().velocity = movement * speed;
                     }
                 }
                 else
                 {
-                    line.SetPosition(1, ray.GetPoint(100));
+                    if (target != null)
+                    {
+                        line.SetPosition(1, target.transform.position);
+                    }
+                    else
+                    {
+                        line.SetPosition(1, ray.GetPoint(100));
+                    }
+                }
+                if (target != null)
+                {
+                    if (push)
+                    {
+                        movement = transform.forward;
+                    }
+                    else
+                    {
+                        Vector3 destination = GameObject.Find("Hold Spot").transform.position;
+                        Vector3 carriedObject = target.transform.position;
+                        movement = (destination - carriedObject);
+                    }
+                    target.GetComponent<Rigidbody>().velocity = movement * speed;
                 }
             }
             yield return null;
