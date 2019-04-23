@@ -9,11 +9,15 @@ public class LaserScript : MonoBehaviour
     public bool push;
     public bool area;
 
+    public float pullSpeed = 5.0f;
+    public float pushSpeed = 10.0f;
+
+    private GameObject target;
+
     void Start()
     {
         line = gameObject.GetComponent<LineRenderer>();
         line.enabled = false;
-        speed = 10.0f;
 
         // Determine the mode of the gun--default is pull/beam (!push/!area).
         push = false;
@@ -28,11 +32,11 @@ public class LaserScript : MonoBehaviour
             // Toggles direction and intensity of push/pull for when the coroutine runs
             if (push)
             {
-                speed = 5.0f;
+                speed = pullSpeed;
             }
             else
             {
-                speed = 10.0f;
+                speed = pushSpeed;
             }
             StopCoroutine("FireLaser");
             StartCoroutine("FireLaser");
@@ -84,16 +88,23 @@ public class LaserScript : MonoBehaviour
                     line.SetPosition(1, hit.point);
                     if (hit.rigidbody)
                     {
+                        if (target == null) {
+                            target = hit.transform.gameObject;
+                            Debug.Log("Gotcha!");
+                            Debug.Log(hit.transform.gameObject.tag);
+                        }
+
                         if (push)
                         {
-                            movement = transform.transform.forward;
+                            movement = transform.forward;
                         }
                         else
                         {
-                            movement = GameObject.Find("Hold Spot").transform.position - hit.transform.position;
+                            Vector3 destination = GameObject.Find("Hold Spot").transform.position;
+                            Vector3 carriedObject = target.transform.position;
+                            movement = (destination - carriedObject);
                         }
-
-                        hit.rigidbody.velocity = movement * speed;
+                        target.GetComponent<Rigidbody>().velocity = movement * speed;
                     }
                 }
                 else
@@ -103,7 +114,7 @@ public class LaserScript : MonoBehaviour
             }
             yield return null;
         }
-
+        target = null;
         line.enabled = false;
     }
 

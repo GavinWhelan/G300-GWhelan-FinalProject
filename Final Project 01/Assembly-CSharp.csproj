@@ -65,6 +65,7 @@
     <Compile Include="Assets\Scripts\BulletFire.cs" />
     <Compile Include="Assets\Scripts\CamMouseLook.cs" />
     <Compile Include="Assets\Scripts\Collideable.cs" />
+    <Compile Include="Assets\Scripts\FreeDamper.cs" />
     <Compile Include="Assets\Scripts\GameController.cs" />
     <Compile Include="Assets\Scripts\GravityWellPull.cs" />
     <Compile Include="Assets\Scripts\LaserScript.cs" />
