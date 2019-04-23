@@ -98,6 +98,9 @@
     <None Include="Assets\Imports\_MK\MKGlassFree\Shader\Inc\VertexLit\MKGlassVertexLitSetup.cginc" />
     <None Include="Assets\Imports\_MK\MKGlassFree\Shader\Inc\VertexLit\MKGlassVertexLit.cginc" />
     <None Include="Assets\Imports\_MK\MKGlassFree\Shader\Inc\Surface\MKGlassSurfaceIO.cginc" />
+    <Reference Include="Unity.ProBuilder.AssetIdRemapUtility">
+      <HintPath>/Users/gavinwhelan/G300-GWhelan-FinalProject/Final Project 01/Library/ScriptAssemblies/Unity.ProBuilder.AssetIdRemapUtility.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>/Users/gavinwhelan/G300-GWhelan-FinalProject/Final Project 01/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
@@ -106,6 +109,9 @@
     </Reference>
     <Reference Include="Unity.CollabProxy.Editor">
       <HintPath>/Users/gavinwhelan/G300-GWhelan-FinalProject/Final Project 01/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ProBuilder.AddOns.Editor">
+      <HintPath>/Users/gavinwhelan/G300-GWhelan-FinalProject/Final Project 01/Library/ScriptAssemblies/Unity.ProBuilder.AddOns.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
       <HintPath>/Users/gavinwhelan/G300-GWhelan-FinalProject/Final Project 01/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
