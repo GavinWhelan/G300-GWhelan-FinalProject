@@ -8,10 +8,18 @@ public class PlayerControllerUpdated : MonoBehaviour
 
     public GameObject gun;
 
+    private Vector3 jump;
+    public float jumpForce = 10.0f;
+
+    private bool isGrounded;
+    Rigidbody rb;
     // Start is called before the first frame update
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+
+        rb = GetComponent<Rigidbody>();
+        jump = new Vector3(0.0f, 0.1f, 0.0f);
     }
 
     // Update is called once per frame
@@ -28,6 +36,12 @@ public class PlayerControllerUpdated : MonoBehaviour
         if (Input.GetKeyDown("escape"))
         {
             Cursor.lockState = CursorLockMode.None;
+        }
+
+        if (Input.GetButtonDown("Jump") && isGrounded)
+        {
+            rb.AddForce(jump * jumpForce, ForceMode.Impulse);
+            isGrounded = false;
         }
     }
 
@@ -54,5 +68,12 @@ public class PlayerControllerUpdated : MonoBehaviour
             gun.GetComponent<LaserScript>().area = false;
         }
     }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        isGrounded = true;
+    }
+
+
 }
 

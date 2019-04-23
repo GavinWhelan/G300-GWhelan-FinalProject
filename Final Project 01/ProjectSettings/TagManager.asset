@@ -8,6 +8,7 @@ TagManager:
   - Draggable
   - Electrified
   - Wet
+  - Ground
   layers:
   - Default
   - TransparentFX
