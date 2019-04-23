@@ -61,6 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Imports\_MK\MKGlassFree\Editor\MKGlassFreeEditor.cs" />
+    <Compile Include="Assets\Imports\LightningBolt\Editor\LightningBoltEditor.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>/Users/gavinwhelan/G300-GWhelan-FinalProject/Final Project 01/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>

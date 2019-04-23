@@ -70,6 +70,7 @@
     <Compile Include="Assets\Scripts\GameController.cs" />
     <Compile Include="Assets\Scripts\GravityWellPull.cs" />
     <Compile Include="Assets\Scripts\LaserScript.cs" />
+    <Compile Include="Assets\Scripts\LightningBoltScript.cs" />
     <Compile Include="Assets\Scripts\New Gun\NewGunPlaCon.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\PlayerControllerUpdated.cs" />
@@ -78,6 +79,7 @@
     <Compile Include="Assets\Scripts\TriggerPlatform.cs" />
     <None Include="Assets\Imports\_MK\MKGlassFree\Shader\MKGlassCommonFree.shader" />
     <None Include="Assets\Imports\_MK\MKGlassFree\Shader\Inc\Common\MKGlassInc.cginc" />
+    <None Include="Assets\Imports\LightningBolt\Readme.txt" />
     <None Include="Assets\Imports\_MK\MKGlassFree\Shader\Inc\Meta\MKGlassMetaIO.cginc" />
     <None Include="Assets\Imports\_MK\MKGlassFree\Shader\Inc\Surface\MKGlassSurface.cginc" />
     <None Include="Assets\Imports\_MK\MKGlassFree\Shader\Inc\Meta\MKGlassMeta.cginc" />
@@ -92,7 +94,6 @@
     <None Include="Assets\Imports\_MK\MKGlassFree\Shader\Inc\Forward\MKGlassForwardAddSetup.cginc" />
     <None Include="Assets\Imports\_MK\MKGlassFree\Shader\Inc\Forward\MKGlassForwardBaseSetup.cginc" />
     <None Include="Assets\Imports\_MK\MKGlassFree\Shader\Inc\Meta\MKGlassMetaSetup.cginc" />
-    <None Include="Assets\Imports\Ultimate Materials Lite\READ ME FIRST.txt" />
     <None Include="Assets\Imports\_MK\MKGlassFree\Shader\Inc\VertexLit\MKGlassVertexLitSetup.cginc" />
     <None Include="Assets\Imports\_MK\MKGlassFree\Shader\Inc\VertexLit\MKGlassVertexLit.cginc" />
     <None Include="Assets\Imports\_MK\MKGlassFree\Shader\Inc\Surface\MKGlassSurfaceIO.cginc" />

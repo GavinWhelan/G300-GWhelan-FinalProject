@@ -16,6 +16,8 @@ public class LaserScript : MonoBehaviour
 
     private GameObject target;
 
+    public GameObject lightningEffect;
+
     void Start()
     {
         line = gameObject.GetComponent<LineRenderer>();
@@ -53,6 +55,7 @@ public class LaserScript : MonoBehaviour
         // When fire1 is pressed
         while (Input.GetButton("Fire1"))
         {
+            Instantiate(lightningEffect, transform.position, transform.rotation);
             // In even of an area effect
             if (area == true)
             {
