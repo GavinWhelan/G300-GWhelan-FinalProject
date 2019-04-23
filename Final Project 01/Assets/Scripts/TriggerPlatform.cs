@@ -8,7 +8,7 @@ public class TriggerPlatform : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag != "Platform")
+        if (other.tag != "Platform" && other.tag != "Ground")
         {
             triggered = true;
         }

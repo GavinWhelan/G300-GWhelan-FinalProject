@@ -30,7 +30,7 @@ public class GameController : MonoBehaviour
 
         if (door01Trigger01 && door01Trigger02)
         {
-            door01.transform.position = new Vector3 (0.0f, 0.0f, 10.0f);
+            door01.transform.position += new Vector3 (0.0f, 0.0f, 10.0f);
             Debug.Log("Yippee!");
         }
     }
