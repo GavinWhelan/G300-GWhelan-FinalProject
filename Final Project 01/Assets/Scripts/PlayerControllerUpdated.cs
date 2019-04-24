@@ -9,7 +9,7 @@ public class PlayerControllerUpdated : MonoBehaviour
     public GameObject gun;
 
     private Vector3 jump;
-    public float jumpForce = 5.0f;
+    public float jumpForce = 4.0f;
 
     private bool isGrounded;
     Rigidbody rb;
