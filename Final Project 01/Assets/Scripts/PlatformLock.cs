@@ -17,6 +17,9 @@ public class PlatformLock : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        other.transform.parent = tempTrans;
+        if (other.tag == "Draggable" || other.tag == "Player")
+        {
+            other.transform.parent = tempTrans;
+        }
     }
 }

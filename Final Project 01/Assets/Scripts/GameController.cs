@@ -92,7 +92,6 @@ public class GameController : MonoBehaviour
             waterLevelAnim.Play("WaterFill");
             waterFilled = true;
             waterDrained = false;
-            triggerPlatform03.GetComponent<TriggerPlatform>().triggered = true;
         }
     }
 
