@@ -11,7 +11,7 @@ public class FallTrap : MonoBehaviour
         if(other.tag == "Player")
         {
             playerDead = true;
-            other.transform.position = new Vector3(0.0f, 0.0f, 0.0f);
+            other.transform.position = new Vector3(0.0f, 3.0f, 0.0f);
             other.transform.rotation = Quaternion.identity;
             playerDead = false;
         }

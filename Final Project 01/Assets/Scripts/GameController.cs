@@ -55,7 +55,7 @@ public class GameController : MonoBehaviour
         Door01();
         DrainWater();
         FillWater();
-        UndoFill();
+        //UndoFill();
     }
 
     void Door01()
@@ -79,6 +79,7 @@ public class GameController : MonoBehaviour
             waterLevelAnim.Play("DrainWater");
             waterFilled = false;
             waterDrained = true;
+            drainWaterButton.GetComponent<ButtonTrigger>().pressed = false;
         }
     }
 
@@ -91,6 +92,7 @@ public class GameController : MonoBehaviour
             waterLevelAnim.Play("WaterFill");
             waterFilled = true;
             waterDrained = false;
+            triggerPlatform03.GetComponent<TriggerPlatform>().triggered = true;
         }
     }
 
