@@ -1,5 +1,5 @@
 ﻿<Properties StartupConfiguration="{BC9EBAF8-5A2B-9FE9-3D05-D600CDE0207A}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/FlickeringLight.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/PlatformLock.cs">
     <Files>
       <File FileName="Assets/Scripts/BulletFire.cs" Line="76" Column="97" />
       <File FileName="Assets/Scripts/PlayerController.cs" Line="57" Column="1" />
@@ -16,7 +16,8 @@
       <File FileName="Assets/Scripts/LightningBoltScript.cs" Line="45" Column="93" />
       <File FileName="Assets/Scripts/LightningBoltScript1.cs" Line="302" Column="73" />
       <File FileName="Assets/WaveformProvider/readme_en.txt" Line="17" Column="76" />
-      <File FileName="Assets/Scripts/FlickeringLight.cs" Line="7" Column="5" />
+      <File FileName="Assets/Scripts/FlickeringLight.cs" Line="22" Column="52" />
+      <File FileName="Assets/Scripts/PlatformLock.cs" Line="7" Column="5" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

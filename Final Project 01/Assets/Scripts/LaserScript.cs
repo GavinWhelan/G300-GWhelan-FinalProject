@@ -117,7 +117,6 @@ public class LaserScript : MonoBehaviour
                         }
                     } else if(hit.transform.gameObject.tag == "Launch")
                     {
-                        Debug.Log("Launch time!");
                         player.GetComponent<Rigidbody>().AddForce(launchFactor * transform.forward, ForceMode.Impulse);
                     }
                 }
