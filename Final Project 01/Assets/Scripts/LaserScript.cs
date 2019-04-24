@@ -9,7 +9,7 @@ public class LaserScript : MonoBehaviour
     public bool push;
     public bool area;
 
-    public float pullSpeed = 5.0f;
+    public float pullSpeed = 10.0f;
     public float pushSpeed = 10.0f;
 
     public float areaRadius = 20.0f;

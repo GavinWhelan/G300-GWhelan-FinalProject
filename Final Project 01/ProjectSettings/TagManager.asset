@@ -12,6 +12,7 @@ TagManager:
   - JumpCollider
   - Platform
   - Launch
+  - Button
   layers:
   - Default
   - TransparentFX

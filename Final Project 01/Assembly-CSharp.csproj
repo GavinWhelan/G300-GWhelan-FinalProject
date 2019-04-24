@@ -86,6 +86,7 @@
     <Compile Include="Assets\Scripts\AimKill.cs" />
     <Compile Include="Assets\Scripts\AimLaser.cs" />
     <Compile Include="Assets\Scripts\BulletFire.cs" />
+    <Compile Include="Assets\Scripts\ButtonTrigger.cs" />
     <Compile Include="Assets\Scripts\CamMouseLook.cs" />
     <Compile Include="Assets\Scripts\Collideable.cs" />
     <Compile Include="Assets\Scripts\FallTrap.cs" />
