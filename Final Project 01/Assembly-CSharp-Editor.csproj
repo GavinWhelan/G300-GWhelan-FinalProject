@@ -62,6 +62,7 @@
   <ItemGroup>
     <Compile Include="Assets\Imports\_MK\MKGlassFree\Editor\MKGlassFreeEditor.cs" />
     <Compile Include="Assets\Imports\LightningBolt\Editor\LightningBoltEditor.cs" />
+    <Compile Include="Assets\InkPainter\Script\Editor\UVChecker.cs" />
     <Reference Include="Unity.ProBuilder.AssetIdRemapUtility">
       <HintPath>/Users/gavinwhelan/G300-GWhelan-FinalProject/Final Project 01/Library/ScriptAssemblies/Unity.ProBuilder.AssetIdRemapUtility.dll</HintPath>
     </Reference>

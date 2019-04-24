@@ -1,20 +1,21 @@
 ﻿<Properties StartupConfiguration="{BC9EBAF8-5A2B-9FE9-3D05-D600CDE0207A}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/TriggerPlatform.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/WaveformProvider/readme_en.txt">
     <Files>
       <File FileName="Assets/Scripts/BulletFire.cs" Line="76" Column="97" />
       <File FileName="Assets/Scripts/PlayerController.cs" Line="57" Column="1" />
-      <File FileName="Assets/Scripts/CamMouseLook.cs" Line="34" Column="59" />
+      <File FileName="Assets/Scripts/CamMouseLook.cs" Line="32" Column="69" />
       <File FileName="Assets/Scripts/GravityWellPull.cs" Line="20" Column="1" />
       <File FileName="Assets/Scripts/AimKill.cs" Line="17" Column="31" />
       <File FileName="Assets/Scripts/New Gun/NewGunPlaCon.cs" Line="59" Column="1" />
-      <File FileName="Assets/Scripts/PlayerControllerUpdated.cs" Line="44" Column="10" />
-      <File FileName="Assets/Scripts/LaserScript.cs" Line="72" Column="22" />
-      <File FileName="Assets/Scripts/TriggerPlatform.cs" Line="18" Column="9" />
+      <File FileName="Assets/Scripts/PlayerControllerUpdated.cs" Line="15" Column="14" />
+      <File FileName="Assets/Scripts/LaserScript.cs" Line="98" Column="14" />
+      <File FileName="Assets/Scripts/TriggerPlatform.cs" Line="11" Column="10" />
       <File FileName="Assets/Scripts/FreeDamper.cs" Line="9" Column="18" />
-      <File FileName="Assets/Scripts/GameController.cs" Line="26" Column="18" />
+      <File FileName="Assets/Scripts/GameController.cs" Line="36" Column="10" />
       <File FileName="Assets/Imports/LightningBolt/Readme.txt" Line="1" Column="1" />
       <File FileName="Assets/Scripts/LightningBoltScript.cs" Line="45" Column="93" />
       <File FileName="Assets/Scripts/LightningBoltScript1.cs" Line="302" Column="73" />
+      <File FileName="Assets/WaveformProvider/readme_en.txt" Line="15" Column="2" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
