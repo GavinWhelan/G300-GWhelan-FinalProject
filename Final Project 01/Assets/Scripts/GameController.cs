@@ -23,6 +23,17 @@ public class GameController : MonoBehaviour
 
     public Animator waterLevelAnim;
 
+
+    public GameObject triggerPlatform03;
+
+    public bool waterTrigger02;
+
+
+    public bool waterFilled = false;
+
+    public bool playerDead;
+   
+
     void Start()
     {
         door01Trigger01 = false;
@@ -34,12 +45,17 @@ public class GameController : MonoBehaviour
         waterTrigger = false;
 
         waterLevelAnim = GameObject.Find("Water Level").GetComponent<Animator>();
+
+
+        waterTrigger02 = false;
     }
     
     void Update()
     {
         Door01();
         DrainWater();
+        FillWater();
+        UndoFill();
     }
 
     void Door01()
@@ -58,9 +74,33 @@ public class GameController : MonoBehaviour
     {
         waterTrigger = drainWaterButton.GetComponent<ButtonTrigger>().pressed;
 
-        if(waterTrigger && !waterDrained)
+        if (waterTrigger && !waterDrained)
         {
             waterLevelAnim.Play("DrainWater");
+            waterFilled = false;
+            waterDrained = true;
+        }
+    }
+
+    void FillWater()
+    {
+        waterTrigger02 = triggerPlatform03.GetComponent<TriggerPlatform>().triggered;
+
+        if (!waterTrigger02 && waterDrained)
+        {
+            waterLevelAnim.Play("WaterFill");
+            waterFilled = true;
+            waterDrained = false;
+        }
+    }
+
+    void UndoFill()
+    {
+        playerDead = GameObject.Find("Water Level").GetComponent<FallTrap>().playerDead;
+
+        if (waterFilled && playerDead)
+        {
+            DrainWater();
         }
     }
 }
