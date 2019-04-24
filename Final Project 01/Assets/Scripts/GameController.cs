@@ -11,6 +11,7 @@ public class GameController : MonoBehaviour
 
     public bool door01Trigger01;
     public bool door01Trigger02;
+    public bool doorOpen = false;
 
     void Start()
     {
@@ -28,10 +29,10 @@ public class GameController : MonoBehaviour
         door01Trigger01 = triggerPlatform01.GetComponent<TriggerPlatform>().triggered;
         door01Trigger02 = triggerPlatform02.GetComponent<TriggerPlatform>().triggered;
 
-        if (door01Trigger01 && door01Trigger02)
+        if (door01Trigger01 && door01Trigger02 && !doorOpen)
         {
             door01.transform.position += new Vector3 (0.0f, 0.0f, 10.0f);
-            Debug.Log("Yippee!");
+            doorOpen = true;
         }
     }
 }
