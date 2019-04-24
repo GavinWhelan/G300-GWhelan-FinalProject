@@ -13,22 +13,27 @@ public class GameController : MonoBehaviour
     public bool door01Trigger02;
     public bool doorOpen = false;
 
+    public Animator door01Anim;
+
 
     public GameObject drainWaterButton;
 
     public bool waterTrigger;
     public bool waterDrained = false;
 
-    public Animator drainWaterAnim;
+    public Animator waterLevelAnim;
 
     void Start()
     {
         door01Trigger01 = false;
         door01Trigger02 = false;
 
+        door01Anim = GameObject.Find("Door 01").GetComponent<Animator>();
+
+
         waterTrigger = false;
 
-        drainWaterAnim = GameObject.Find("Water Level").GetComponent<Animator>();
+        waterLevelAnim = GameObject.Find("Water Level").GetComponent<Animator>();
     }
     
     void Update()
@@ -44,7 +49,7 @@ public class GameController : MonoBehaviour
 
         if (door01Trigger01 && door01Trigger02 && !doorOpen)
         {
-            door01.transform.position += new Vector3 (0.0f, 0.0f, 10.0f);
+            door01Anim.Play("OpenDoor01");
             doorOpen = true;
         }
     }
@@ -55,7 +60,7 @@ public class GameController : MonoBehaviour
 
         if(waterTrigger && !waterDrained)
         {
-            drainWaterAnim.Play("DrainWater");
+            waterLevelAnim.Play("DrainWater");
         }
     }
 }
